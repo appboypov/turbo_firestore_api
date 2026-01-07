@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## 🚀 Version 0.8.2 (January 2026)
+
+### 🛠️ Improvements:
+* **🔄 Changed:** Updated GitHub repository URLs to appboypov organization.
+
 ## 🚀 Version 0.8.1 (September 2025)
 
 ### 🛠️ Improvements:
