@@ -37,12 +37,12 @@ dependencies:
   firebase_core: ^4.1.1
 
   #  Packages
-  loglytics: ^0.16.1
-  turbo_response: ^0.2.6
-  informers: ^0.0.3+2
+  loglytics: ^0.17.0
+  turbo_response: ^1.0.1
+  informers: ^0.0.5
   turbo_firestore_api:
     path: ../
-  veto: ^0.0.15
+  veto: ^0.0.16
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+## 🚀 Version 0.8.3 (2026-01-08)
+
+### 🛠️ Improvements:
+* **🔄 Changed:** Updated internal package dependencies to latest versions:
+  * `loglytics`: ^0.16.1 → ^0.17.0
+  * `turbo_response`: ^0.2.6 → ^1.0.1
+  * `informers`: ^0.0.3+2 → ^0.0.5
+
 ## 🚀 Version 0.8.2 (January 2026)
 
 ### 🛠️ Improvements:
