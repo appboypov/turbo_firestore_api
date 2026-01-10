@@ -146,15 +146,24 @@ extension TurboFirestoreCreateApi<T> on TurboFirestoreApi {
           message: 'Creating JSON..',
           sensitiveData: null,
         );
+        final json = writeable.toJson();
+        if (json == null) {
+          return TurboResponse.fail(
+            error: TurboException(
+              title: 'Serialization Error',
+              message: 'The writeable object did not provide JSON serialization (toJson returned null)',
+            ),
+          );
+        }
         final writeableAsJson = (merge || mergeFields != null) &&
                 (await documentReference.get(_getOptions)).exists
             ? updateTimeStampType.add(
-                writeable.toJson(),
+                json,
                 updatedAtFieldName: _updatedAtFieldName,
                 createdAtFieldName: _createdAtFieldName,
               )
             : createTimeStampType.add(
-                writeable.toJson(),
+                json,
                 createdAtFieldName: _createdAtFieldName,
                 updatedAtFieldName: _updatedAtFieldName,
               );
@@ -334,15 +343,24 @@ extension TurboFirestoreCreateApi<T> on TurboFirestoreApi {
               .collection(collectionPathOverride ?? _collectionPath())
               .doc();
       _log.debug(message: 'Creating JSON..', sensitiveData: null);
+      final json = writeable.toJson();
+      if (json == null) {
+        return TurboResponse.fail(
+          error: TurboException(
+            title: 'Serialization Error',
+            message: 'The writeable object did not provide JSON serialization (toJson returned null)',
+          ),
+        );
+      }
       final writeableAsJson = (merge || mergeFields != null) &&
               (await documentReference.get(_getOptions)).exists
           ? updateTimeStampType.add(
-              writeable.toJson(),
+              json,
               updatedAtFieldName: _updatedAtFieldName,
               createdAtFieldName: _createdAtFieldName,
             )
           : createTimeStampType.add(
-              writeable.toJson(),
+              json,
               createdAtFieldName: _createdAtFieldName,
               updatedAtFieldName: _updatedAtFieldName,
             );

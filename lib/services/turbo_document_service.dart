@@ -35,9 +35,9 @@ part 'af_sync_turbo_document_service.dart';
 /// - Before/after update notifications
 ///
 /// Type Parameters:
-/// - [T] - The document type, must extend [TurboWriteableId<String>]
+/// - [T] - The document type, must extend [TurboWriteableId<String, void>]
 /// - [API] - The Firestore API type, must extend [TurboFirestoreApi<T>]
-abstract class TurboDocumentService<T extends TurboWriteableId<String>,
+abstract class TurboDocumentService<T extends TurboWriteableId<String, void>,
         API extends TurboFirestoreApi<T>> extends TurboAuthSyncService<T?>
     with Loglytics {
   /// Creates a new [TurboDocumentService] instance.

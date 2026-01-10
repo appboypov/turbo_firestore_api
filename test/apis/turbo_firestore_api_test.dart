@@ -108,11 +108,43 @@ void main() {
         fail('Document deletion failed');
       }
     });
+
+    test('should fail createDoc when toJson returns null', () async {
+      final request = TestRequestWithNullJson();
+
+      final response = await api.createDoc(writeable: request);
+
+      if (response case Fail(:final error)) {
+        expect(error.toString(), contains('Serialization Error'));
+      } else {
+        fail('Expected failure when toJson returns null');
+      }
+    });
+
+    test('should fail updateDoc when toJson returns null', () async {
+      final docRef = await firestore.collection(collectionPath).add({
+        'name': 'Test Item',
+        'value': 42,
+      });
+
+      final request = TestRequestWithNullJson();
+
+      final response = await api.updateDoc(
+        id: docRef.id,
+        writeable: request,
+      );
+
+      if (response case Fail(:final error)) {
+        expect(error.toString(), contains('Serialization Error'));
+      } else {
+        fail('Expected failure when toJson returns null');
+      }
+    });
   });
 }
 
-class TestRequest implements TurboWriteable {
-  const TestRequest({
+class TestRequest extends TurboWriteable {
+  TestRequest({
     required this.name,
     required this.value,
   });
@@ -151,4 +183,9 @@ class TestFirestoreApi extends TurboFirestoreApi {
     required super.firebaseFirestore,
     required super.collectionPath,
   });
+}
+
+class TestRequestWithNullJson extends TurboWriteable {
+  @override
+  Map<String, dynamic>? toJson() => null;
 }

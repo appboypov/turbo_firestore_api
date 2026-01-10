@@ -6,10 +6,10 @@ part of 'turbo_collection_service.dart';
 /// the local state is updated with new data from Firestore.
 ///
 /// Type Parameters:
-/// - [T] - The document type, must extend [TurboWriteableId<String>]
+/// - [T] - The document type, must extend [TurboWriteableId<String, void>]
 /// - [API] - The Firestore API type, must extend [TurboFirestoreApi<T>]
 abstract class BeAfSyncTurboCollectionService<
-    T extends TurboWriteableId<String>,
+    T extends TurboWriteableId<String, void>,
     API extends TurboFirestoreApi<T>> extends TurboCollectionService<T, API> {
   /// Creates a new [BeAfSyncTurboCollectionService] instance.
   BeAfSyncTurboCollectionService({required super.api});

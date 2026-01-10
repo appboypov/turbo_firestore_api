@@ -6,7 +6,8 @@ A powerful, type-safe wrapper around Cloud Firestore operations for Flutter appl
 
 - [🔒 Type-safe Operations](#-type-safe-operations)
   - Automatic type conversion between Firestore and Dart objects
-  - Built-in validation through `TurboWriteable`
+  - Built-in validation through `TurboWriteable` (powered by [turbo_serializable](https://pub.dev/packages/turbo_serializable))
+  - Optional multi-format serialization (JSON, YAML, Markdown)
   - Local ID and reference field management
 
 - [🔄 State Management](#-state-management)
@@ -108,7 +109,9 @@ final api = TurboFirestoreApi<User>(
 
 ### 🛡️ Built-in Validation
 
-Turbo Firestore API includes built-in validation through the `TurboWriteable` abstract class, ensuring data integrity and consistency. By extending `TurboWriteable`, you can implement custom validation logic, handle field-level checks, and ensure data meets your application's requirements.
+Turbo Firestore API includes built-in validation through `TurboWriteable`, which is a type alias for `TurboSerializable` from the [turbo_serializable](https://pub.dev/packages/turbo_serializable) package. This ensures data integrity and consistency while providing optional multi-format serialization support.
+
+By extending `TurboWriteable`, you can implement custom validation logic, handle field-level checks, and ensure data meets your application's requirements. All serialization methods are optional - implement only what you need.
 
 ```dart
 import 'package:turbo_firestore_api/abstracts/turbo_writeable.dart';

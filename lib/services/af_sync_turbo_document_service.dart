@@ -6,9 +6,9 @@ part of 'turbo_document_service.dart';
 /// the local state has been updated with new data from Firestore.
 ///
 /// Type Parameters:
-/// - [T] - The document type, must extend [TurboWriteableId<String>]
+/// - [T] - The document type, must extend [TurboWriteableId<String, void>]
 /// - [API] - The Firestore API type, must extend [TurboFirestoreApi<T>]
-abstract class AfSyncTurboDocumentService<T extends TurboWriteableId<String>,
+abstract class AfSyncTurboDocumentService<T extends TurboWriteableId<String, void>,
     API extends TurboFirestoreApi<T>> extends TurboDocumentService<T, API> {
   /// Creates a new [AfSyncTurboDocumentService] instance.
   AfSyncTurboDocumentService({required super.api});

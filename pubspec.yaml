@@ -1,6 +1,6 @@
 name: turbo_firestore_api
 description: A clean and efficient approach to dealing with data from Firestore.
-version: 0.8.3
+version: 0.8.4
 repository: https://github.com/appboypov/turbo_firestore_api
 homepage: https://github.com/appboypov/turbo_firestore_api
 issue_tracker: https://github.com/appboypov/turbo_firestore_api/issues
@@ -17,6 +17,7 @@ dependencies:
 
   loglytics: ^0.17.0
   turbo_response: ^1.0.1
+  turbo_serializable: ^0.0.1
   informers: ^0.0.5
 
 dev_dependencies:

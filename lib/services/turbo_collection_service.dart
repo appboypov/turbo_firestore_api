@@ -34,7 +34,7 @@ part 'before_after_sync_turbo_collection_service.dart';
 /// - Automatic user authentication state sync
 ///
 /// Type Parameters:
-/// - [T] - The document type, must extend [TurboWriteableId<String>]
+/// - [T] - The document type, must extend [TurboWriteableId<String, void>]
 /// - [API] - The Firestore API type, must extend [TurboFirestoreApi<T>]
 ///
 /// Example:
@@ -58,7 +58,7 @@ part 'before_after_sync_turbo_collection_service.dart';
 /// - Automatic stream update blocking during mutations
 /// - Error handling and logging
 /// - User authentication state synchronization
-abstract class TurboCollectionService<T extends TurboWriteableId<String>,
+abstract class TurboCollectionService<T extends TurboWriteableId<String, void>,
         API extends TurboFirestoreApi<T>> extends TurboAuthSyncService<List<T>>
     with Loglytics {
   /// Creates a new [TurboCollectionService] instance.

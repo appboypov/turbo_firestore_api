@@ -132,8 +132,17 @@ extension TurboFirestoreUpdateApi<T> on TurboFirestoreApi<T> {
           message: 'Creating JSON..',
           sensitiveData: null,
         );
+        final json = writeable.toJson();
+        if (json == null) {
+          return TurboResponse.fail(
+            error: TurboException(
+              title: 'Serialization Error',
+              message: 'The writeable object did not provide JSON serialization (toJson returned null)',
+            ),
+          );
+        }
         final writeableAsJson = timestampType.add(
-          writeable.toJson(),
+          json,
           createdAtFieldName: _createdAtFieldName,
           updatedAtFieldName: _updatedAtFieldName,
         );
@@ -281,8 +290,17 @@ extension TurboFirestoreUpdateApi<T> on TurboFirestoreApi<T> {
       final nullSafeWriteBatch = writeBatch ?? this.writeBatch;
       final documentReference = getDocRefById(id: id);
       _log.debug(message: 'Creating JSON..', sensitiveData: null);
+      final json = writeable.toJson();
+      if (json == null) {
+        return TurboResponse.fail(
+          error: TurboException(
+            title: 'Serialization Error',
+            message: 'The writeable object did not provide JSON serialization (toJson returned null)',
+          ),
+        );
+      }
       final writeableAsJson = timestampType.add(
-        writeable.toJson(),
+        json,
         createdAtFieldName: _createdAtFieldName,
         updatedAtFieldName: _updatedAtFieldName,
       );

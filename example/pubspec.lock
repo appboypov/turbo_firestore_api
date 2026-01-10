@@ -355,7 +355,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.8.2"
+    version: "0.8.4"
   turbo_response:
     dependency: "direct main"
     description:
@@ -364,6 +364,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  turbo_serializable:
+    dependency: transitive
+    description:
+      name: turbo_serializable
+      sha256: "1ec686f04fb50a7582e8225ee45d20d55c04e911a4a1dbd950c17cdbe7e5b3db"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:
